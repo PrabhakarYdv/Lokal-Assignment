@@ -10,7 +10,7 @@ class JobRepository {
     private val responseHandler = ResponseHandler()
 
     suspend fun getDataFromServer(): Resource<List<Results>> {
-        val data = apiService.getAllJobs()
+        val data = apiService.getAllJobs().results
         return try {
             responseHandler.handleSuccess(data)
         } catch (e: Exception) {

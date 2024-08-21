@@ -11,7 +11,7 @@ class JobViewHolder(private val binding: JobLayoutBinding) : RecyclerView.ViewHo
             jobTitle.text = model.title
             jobLocation.text = model.primaryDetails?.Place
             jobSalary.text = model.primaryDetails?.Salary
-            phone.text = model.customLink
+            phone.text = model.whatsappNo
         }
     }
 }
