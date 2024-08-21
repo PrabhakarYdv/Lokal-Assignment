@@ -1,143 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D5D2D2"
     android:orientation="vertical"
+    android:scrollbars="none"
     tools:context=".ui.fragment.DetailFragment">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginVertical="10dp"
-        android:ellipsize="middle"
-        android:text="Android Developer"
-        android:textColor="#063461"
-        android:textSize="30dp"
-        android:textStyle="bold" />
-
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:elevation="5dp"
-        app:cardUseCompatPadding="true"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/location"
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Location: Bengaluru"
-            android:padding="10dp"
-            android:textColor="#D88509"
-            android:textSize="20dp" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="10dp"
+            android:ellipsize="middle"
+            android:text="Android Developer"
+            android:textColor="#063461"
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:elevation="5dp"
-        app:cardUseCompatPadding="true"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
-
-        <TextView
-            android:id="@+id/salary"
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Salary: 35000"
-            android:padding="10dp"
-            android:textColor="#1A7ECD"
-            android:textSize="20dp" />
+            android:layout_margin="5dp"
+            android:elevation="5dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true">
 
-    </androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Location: Bengaluru"
+                android:textColor="#D88509"
+                android:textSize="20dp" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:elevation="5dp"
-        app:cardUseCompatPadding="true"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
+        </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/contact"
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Contact: 6206950235"
-            android:padding="10dp"
-            android:textColor="#000000"
-            android:textSize="20dp" />
+            android:layout_margin="5dp"
+            android:elevation="5dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true">
 
-    </androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/salary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Salary: 35000"
+                android:textColor="#1A7ECD"
+                android:textSize="20dp" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:elevation="5dp"
-        app:cardUseCompatPadding="true"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
+        </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/type"
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Type: Internship"
-            android:padding="10dp"
-            android:textColor="#E91E63"
-            android:textSize="20dp" />
+            android:layout_margin="5dp"
+            android:elevation="5dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true">
 
-    </androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Contact: 6206950235"
+                android:textColor="#000000"
+                android:textSize="20dp" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:elevation="5dp"
-        app:cardUseCompatPadding="true"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
+        </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/category"
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Category: Software Engineer"
-            android:padding="10dp"
-            android:textColor="#977D32"
-            android:textSize="20dp" />
+            android:layout_margin="5dp"
+            android:elevation="5dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true">
 
-    </androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Type: Internship"
+                android:textColor="#E91E63"
+                android:textSize="20dp" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:elevation="5dp"
-        app:cardUseCompatPadding="true"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
+        </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/experience"
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Experience: Fresher"
-            android:padding="10dp"
-            android:textColor="#D88509"
-            android:textSize="20dp" />
+            android:layout_margin="5dp"
+            android:elevation="5dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true">
 
-    </androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Category: Software Engineer"
+                android:textColor="#977D32"
+                android:textSize="20dp" />
 
-</LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:elevation="5dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true">
+
+            <TextView
+                android:id="@+id/experience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Experience: Fresher"
+                android:textColor="#D88509"
+                android:textSize="20dp" />
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>
