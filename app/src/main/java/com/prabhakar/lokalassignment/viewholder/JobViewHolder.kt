@@ -8,10 +8,10 @@ class JobViewHolder(private val binding: JobLayoutBinding) : RecyclerView.ViewHo
 
     fun setData(model: Results) {
         binding.apply {
-            jobTitle.text = model.title
-            jobLocation.text = model.primaryDetails?.Place
-            jobSalary.text = model.primaryDetails?.Salary
-            phone.text = model.whatsappNo
+            jobTitle.text = "Job Title: ${model.title}"
+            jobLocation.text = "Location: ${model.primaryDetails?.Place}"
+            jobSalary.text = "Salary: ${model.primaryDetails?.Salary}"
+            phone.text = "Contact: ${model.whatsappNo}"
         }
     }
 }
