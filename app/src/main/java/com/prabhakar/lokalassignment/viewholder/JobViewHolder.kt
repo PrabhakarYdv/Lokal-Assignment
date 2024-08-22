@@ -3,7 +3,7 @@ package com.prabhakar.lokalassignment.viewholder
 import androidx.recyclerview.widget.RecyclerView
 import com.prabhakar.lokalassignment.ClickListener
 import com.prabhakar.lokalassignment.data.remote.model.Results
-import com.prabhakar.lokalassignment.data.roomdb.model.JobModel
+import com.prabhakar.lokalassignment.data.remote.model.toJobModel
 import com.prabhakar.lokalassignment.databinding.JobLayoutBinding
 
 class JobViewHolder(
@@ -18,11 +18,11 @@ class JobViewHolder(
             phone.text = "Contact: ${model.whatsappNo}"
 
             job.setOnClickListener {
-                clickListener.goToDetails(model,adapterPosition)
+                clickListener.goToDetails(model, adapterPosition)
             }
 
-            bookmark.setOnClickListener{
-//                clickListener.onClickBookmark(model , adapterPosition)
+            bookmark.setOnClickListener {
+                clickListener.onClickBookmark(model.toJobModel() , adapterPosition)
             }
         }
     }

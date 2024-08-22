@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,12 +29,13 @@ class JobsFragment : Fragment(), ClickListener {
 
     private lateinit var binding: FragmentJobsBinding
 
-    //    private val viewModel: JobViewModel by viewModels()
-    private lateinit var viewModel: JobViewModel
-    private lateinit var viewModelFactory: JobViewModelFactory
-    private lateinit var repo: JobRepository
-    private lateinit var jobDAO: JobDAO
-    private lateinit var roomDB: JobRoomDB
+//    private val viewModel: JobViewModel by viewModels()
+
+    private lateinit var roomDB:JobRoomDB
+    private lateinit var jobDAO:JobDAO
+    private lateinit var repo:JobRepository
+    private lateinit var viewModelFactory:JobViewModelFactory
+    private lateinit var viewModel:JobViewModel
 
     private lateinit var adapter: JobAdapter
     private var jobList = listOf<Results>()
@@ -44,7 +46,7 @@ class JobsFragment : Fragment(), ClickListener {
     ): View? {
         binding = FragmentJobsBinding.inflate(layoutInflater)
 
-        roomDB = JobRoomDB.getDBObject(requireContext())
+        roomDB = JobRoomDB.getInstance(requireActivity())
         jobDAO = roomDB.getDAO()
         repo = JobRepository(jobDAO)
         viewModelFactory = JobViewModelFactory(repo)
@@ -96,6 +98,6 @@ class JobsFragment : Fragment(), ClickListener {
 
     override fun onClickBookmark(model: JobModel, position: Int) {
         Utils.showToast(requireContext(), "Bookmark job $position")
-//        viewModel.addToBookmarkJob(model)
+        viewModel.addToBookmarkJob(model)
     }
 }

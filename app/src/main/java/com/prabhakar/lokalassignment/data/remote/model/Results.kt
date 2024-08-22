@@ -1,5 +1,6 @@
 package com.prabhakar.lokalassignment.data.remote.model
 
+import com.prabhakar.lokalassignment.data.roomdb.model.JobModel
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -64,3 +65,7 @@ data class Results(
     @SerialName("fees_charged") var feesCharged: Int? = null
 
 )
+
+fun Results.toJobModel():JobModel{
+    return JobModel(id,title,primaryDetails?.Place,primaryDetails?.Salary,whatsappNo)
+}

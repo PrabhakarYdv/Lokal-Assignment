@@ -12,19 +12,31 @@ abstract class JobRoomDB : RoomDatabase() {
 
     companion object {
         var instance: JobRoomDB? = null
-        fun getDBObject(context: Context): JobRoomDB {
-            if (instance != null) {
-                return instance as JobRoomDB
-            } else {
-                val builder = Room.databaseBuilder(
-                    context.applicationContext,
-                    JobRoomDB::class.java,
-                    "BookmarkJobsDB"
-                )
-                builder.fallbackToDestructiveMigration()
-                instance = builder.build()
-                return instance as JobRoomDB
-            }
+//        fun getDBObject(context: Context): JobRoomDB {
+//            if (instance != null) {
+//                return instance!!
+//            } else {
+//                val builder = Room.databaseBuilder(
+//                    context.applicationContext,
+//                    JobRoomDB::class.java,
+//                    "BookmarkJobsDB"
+//                )
+//                builder.fallbackToDestructiveMigration()
+//                instance = builder.build()
+//                return instance!!
+//            }
+//        }
+
+        @Synchronized
+        fun getInstance(ctx: Context): JobRoomDB {
+            if(instance == null)
+                instance = Room.databaseBuilder(ctx.applicationContext, JobRoomDB::class.java,
+                    "BookmarkJobsDB")
+                    .fallbackToDestructiveMigration()
+                    .build()
+
+            return instance!!
+
         }
     }
 }

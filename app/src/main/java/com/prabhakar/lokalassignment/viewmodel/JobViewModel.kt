@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.prabhakar.lokalassignment.data.remote.Resource
 import com.prabhakar.lokalassignment.data.remote.model.Results
-import com.prabhakar.lokalassignment.data.roomdb.JobDAO
 import com.prabhakar.lokalassignment.data.roomdb.model.JobModel
 import com.prabhakar.lokalassignment.repo.JobRepository
 import kotlinx.coroutines.Dispatchers
