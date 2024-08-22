@@ -1,7 +1,6 @@
-package com.prabhakar.lokalassignment.data
+package com.prabhakar.lokalassignment.data.remote
 
 import com.prabhakar.lokalassignment.Utils
-import com.prabhakar.lokalassignment.data.remote.APIService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

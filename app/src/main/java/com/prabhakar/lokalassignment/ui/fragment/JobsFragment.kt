@@ -6,23 +6,35 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.prabhakar.lokalassignment.ClickListener
 import com.prabhakar.lokalassignment.Utils
 import com.prabhakar.lokalassignment.adapter.JobAdapter
 import com.prabhakar.lokalassignment.data.remote.Status
 import com.prabhakar.lokalassignment.data.remote.model.Results
+import com.prabhakar.lokalassignment.data.roomdb.JobDAO
+import com.prabhakar.lokalassignment.data.roomdb.JobRoomDB
+import com.prabhakar.lokalassignment.data.roomdb.model.JobModel
 import com.prabhakar.lokalassignment.databinding.FragmentJobsBinding
+import com.prabhakar.lokalassignment.repo.JobRepository
 import com.prabhakar.lokalassignment.ui.activity.DetailsActivity
 import com.prabhakar.lokalassignment.viewmodel.JobViewModel
+import com.prabhakar.lokalassignment.viewmodel.JobViewModelFactory
 
 
 class JobsFragment : Fragment(), ClickListener {
 
     private lateinit var binding: FragmentJobsBinding
-    private val viewModel: JobViewModel by viewModels()
+
+    //    private val viewModel: JobViewModel by viewModels()
+    private lateinit var viewModel: JobViewModel
+    private lateinit var viewModelFactory: JobViewModelFactory
+    private lateinit var repo: JobRepository
+    private lateinit var jobDAO: JobDAO
+    private lateinit var roomDB: JobRoomDB
+
     private lateinit var adapter: JobAdapter
     private var jobList = listOf<Results>()
 
@@ -32,8 +44,11 @@ class JobsFragment : Fragment(), ClickListener {
     ): View? {
         binding = FragmentJobsBinding.inflate(layoutInflater)
 
-
-//        viewModel = ViewModelProvider(this).get(JobViewModel::class.java)
+        roomDB = JobRoomDB.getDBObject(requireContext())
+        jobDAO = roomDB.getDAO()
+        repo = JobRepository(jobDAO)
+        viewModelFactory = JobViewModelFactory(repo)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(JobViewModel::class.java)
         showData()
         return binding.root
     }
@@ -79,7 +94,8 @@ class JobsFragment : Fragment(), ClickListener {
     }
 
 
-    override fun onClickBookmark(model: Results, position: Int) {
+    override fun onClickBookmark(model: JobModel, position: Int) {
         Utils.showToast(requireContext(), "Bookmark job $position")
+//        viewModel.addToBookmarkJob(model)
     }
 }
