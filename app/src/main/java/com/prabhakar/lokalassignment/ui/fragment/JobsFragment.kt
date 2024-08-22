@@ -1,5 +1,6 @@
 package com.prabhakar.lokalassignment.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,15 +8,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.prabhakar.lokalassignment.ClickListener
-import com.prabhakar.lokalassignment.R
 import com.prabhakar.lokalassignment.Utils
 import com.prabhakar.lokalassignment.adapter.JobAdapter
 import com.prabhakar.lokalassignment.data.remote.Status
 import com.prabhakar.lokalassignment.data.remote.model.Results
 import com.prabhakar.lokalassignment.databinding.FragmentJobsBinding
+import com.prabhakar.lokalassignment.ui.activity.DetailsActivity
 import com.prabhakar.lokalassignment.viewmodel.JobViewModel
 
 
@@ -67,15 +67,15 @@ class JobsFragment : Fragment(), ClickListener {
 
     override fun goToDetails(model: Results, position: Int) {
 //        Utils.showToast(requireContext(),"Clicked at $position")
-        val bundle = Bundle()
-        bundle.putString("title",model.title)
-        bundle.putString("location",model.primaryDetails?.Place)
-        bundle.putString("salary",model.primaryDetails?.Salary)
-        bundle.putString("contact",model.whatsappNo)
-        bundle.putString("experience",model.primaryDetails?.Experience)
-        bundle.putString("type",model.jobHours)
-        bundle.putString("category",model.jobCategory)
-        findNavController().navigate(R.id.action_jobsFragment_to_detailFragment, bundle)
+        val intent = Intent(requireContext(), DetailsActivity::class.java)
+        intent.putExtra("title", model.title)
+        intent.putExtra("location", model.primaryDetails?.Place)
+        intent.putExtra("salary", model.primaryDetails?.Salary)
+        intent.putExtra("contact", model.whatsappNo)
+        intent.putExtra("experience", model.primaryDetails?.Experience)
+        intent.putExtra("type", model.jobHours)
+        intent.putExtra("category", model.jobCategory)
+        startActivity(intent)
     }
 
 
