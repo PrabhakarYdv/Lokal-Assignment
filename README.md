@@ -32,4 +32,5 @@
 * Retrofit Library
 * Coroutines
 * Room DB
+* ViewBinding
 
